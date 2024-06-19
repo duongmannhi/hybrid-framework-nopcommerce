@@ -11,7 +11,8 @@ import org.testng.annotations.Test;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class Account_01_Register {
+// Class này đang vi phạm nguyên tắc DRY: Don't Repeat Yourself
+public class Level_01_DRY {
     WebDriver driver;
 
     @BeforeClass
