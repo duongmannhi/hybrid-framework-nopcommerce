@@ -38,7 +38,7 @@ public class Level_03_PageObject extends BasePage {
     public void User_01_Register_Empty_Data() {
         homePage.clickToRegisterLink();
 
-        registerPage = new RegisterPageObject();
+        registerPage = new RegisterPageObject(driver);
 
         registerPage.clickToRegisterButton();
 
@@ -56,7 +56,7 @@ public class Level_03_PageObject extends BasePage {
 
         homePage.clickToRegisterLink();
 
-        registerPage = new RegisterPageObject();
+        registerPage = new RegisterPageObject(driver);
 
         registerPage.enterToFirtNameTextbox("John");
         registerPage.enterToLastNameTextbox("Kennedy");
@@ -98,7 +98,7 @@ public class Level_03_PageObject extends BasePage {
 
         homePage.clickToRegisterLink();
 
-        registerPage = new RegisterPageObject();
+        registerPage = new RegisterPageObject(driver);
 
         registerPage.enterToFirtNameTextbox("John");
         registerPage.enterToLastNameTextbox("Kennedy");
@@ -119,7 +119,7 @@ public class Level_03_PageObject extends BasePage {
 
         homePage.clickToRegisterLink();
 
-        registerPage = new RegisterPageObject();
+        registerPage = new RegisterPageObject(driver);
 
         registerPage.enterToFirtNameTextbox("John");
         registerPage.enterToLastNameTextbox("Kennedy");
@@ -138,9 +138,10 @@ public class Level_03_PageObject extends BasePage {
 
         homePage = new HomePageObject(driver);
 
+        homePage.clickToLogoutLink();
         homePage.clickToLoginLink();
 
-        loginPage = new LoginPageObject();
+        loginPage = new LoginPageObject(driver);
 
         loginPage.enterToEmailTextbox(emailAddress);
         loginPage.enterToPasswordTextbox("123456");
@@ -151,11 +152,11 @@ public class Level_03_PageObject extends BasePage {
 
         homePage.clickToMyAccountLink();
 
-        customerPage = new CustomerPageObject();
+        customerPage = new CustomerPageObject(driver);
 
         Assert.assertEquals(customerPage.getFirstNameTextboxAttributeValue(), "John");
         Assert.assertEquals(customerPage.getLastNameTextboxAttributeValue(), "Kennedy");
-        Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), getEmailRandom());
+        Assert.assertEquals(customerPage.getEmailAddressTextboxAttributeValue(), emailAddress);
 
     }
 
