@@ -13,4 +13,40 @@ public class RegisterPageObject {
     public static final String PASSWORD_ERROR_MSG = "//span[@id='Password-error']";
     public static final String CONFIRM_PASSWORD_ERROR_MSG = "//span[@id='ConfirmPassword-error']";
     public static final String REGISTRATION_COMPLETED_MSG = "//div[@class='result']";
+
+    public void clickToRegisterButton() {
+    }
+
+    public byte[] getFirstNameErrorMessageText() {
+    }
+
+    public byte[] getLastNameErrorMessageText() {
+    }
+
+    public byte[] getEmailErrorMessageText() {
+    }
+
+    public byte[] getConfirmPasswordErrorMessageText() {
+    }
+
+    public void clickToNopCommerceLogo() {
+    }
+
+    public void enterToFirtNameTextbox(String john) {
+    }
+
+    public void enterToLastNameTextbox(String kennedy) {
+    }
+
+    public void enterToEmailTextbox(String s) {
+    }
+
+    public void enterToPasswordTextbox(String number) {
+    }
+
+    public void enterToConfirmPasswordTextbox(String number) {
+    }
+
+    public byte[] getRegisterSuccessMessageText() {
+    }
 }
