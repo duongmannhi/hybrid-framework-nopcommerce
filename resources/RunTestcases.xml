@@ -2,12 +2,23 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="NopCommerce">
     <test name="Run on Firefox">
+        <parameter name="browser" value="firefox"></parameter>
         <classes>
-            <class name="com.nopcommerce.account.Level_01_DRY"></class>
-            <class name="com.nopcommerce.account.Level_02_BasePage_1_Init"></class>
-            <class name="com.nopcommerce.account.Level_02_BasePage_2_Static"></class>
-            <class name="com.nopcommerce.account.Level_02_BasePage_3_Inheritance"></class>
-            <class name="com.nopcommerce.account.Level_03_PageObject"></class>
+            <class name="com.nopcommerce.account.Level_04_Multiple_Browser"></class>
+        </classes>
+    </test>
+
+    <test name="Run on Chrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="com.nopcommerce.account.Level_04_Multiple_Browser"></class>
+        </classes>
+    </test>
+
+    <test name="Run on Edge">
+        <parameter name="browser" value="edge"></parameter>
+        <classes>
+            <class name="com.nopcommerce.account.Level_04_Multiple_Browser"></class>
         </classes>
     </test>
 </suite>

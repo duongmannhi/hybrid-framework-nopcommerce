@@ -1,10 +1,14 @@
 package com.nopcommerce.account;
 
+import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.CustomerPageObject;
 import pageObjects.HomePageObject;
@@ -14,7 +18,7 @@ import pageObjects.RegisterPageObject;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class Level_03_PageObject {
+public class Level_04_Multiple_Browser extends BaseTest {
     WebDriver driver;
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
@@ -22,19 +26,15 @@ public class Level_03_PageObject {
     private CustomerPageObject customerPage;
     String emailAddress = getEmailRandom();
 
+    @Parameters("browser")
     @BeforeClass
-    public void beforeClass() {
-        driver = new FirefoxDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-        driver.get("https://demo.nopcommerce.com/");
-
-        homePage = new HomePageObject(driver);
+    public void beforeClass(String browserName) {
+        driver = getBrowserDriver(browserName);
     }
 
     @Test
     public void User_01_Register_Empty_Data() {
+        homePage = new HomePageObject(driver);
         homePage.clickToRegisterLink();
 
         registerPage = new RegisterPageObject(driver);
@@ -161,10 +161,6 @@ public class Level_03_PageObject {
 
     @AfterClass
     public void afterClass() {
-        driver.quit();
-    }
-
-    public String getEmailRandom() {
-        return "john" + new Random().nextInt(99999) + "@kennedy.us";
+        closeBrowser();
     }
 }
