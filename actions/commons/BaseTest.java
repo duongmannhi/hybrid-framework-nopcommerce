@@ -1,12 +1,10 @@
 package commons;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.util.Locale;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -18,15 +16,15 @@ public class BaseTest {
 
         switch (browser) {
             case FIREFOX:
-                driver = WebDriverManager.firefoxdriver().create();
+                driver = new FirefoxDriver();
                 break;
 
             case CHROME:
-                driver = WebDriverManager.chromedriver().create();
+                driver = new ChromeDriver();
                 break;
 
             case EDGE:
-                driver = WebDriverManager.edgedriver().create();
+                driver = new EdgeDriver();
                 break;
 
             default:
