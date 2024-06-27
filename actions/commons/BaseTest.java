@@ -1,5 +1,6 @@
 package commons;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -17,15 +18,15 @@ public class BaseTest {
 
         switch (browser) {
             case FIREFOX:
-                driver = new FirefoxDriver();
+                driver = WebDriverManager.firefoxdriver().create();
                 break;
 
             case CHROME:
-                driver = new ChromeDriver();
+                driver = WebDriverManager.chromedriver().create();
                 break;
 
             case EDGE:
-                driver = new EdgeDriver();
+                driver = WebDriverManager.edgedriver().create();
                 break;
 
             default:
